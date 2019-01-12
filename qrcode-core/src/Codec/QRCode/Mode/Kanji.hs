@@ -25,10 +25,10 @@ import           Codec.QRCode.Data.ToInput
 --
 --   But it is possible to encode some of it and combine it with others like ISO-8859-1.
 kanji :: ToText a => a -> Result QRSegment
-kanji s = ((encodeBits 4 0b1000 <> lengthSegment (8, 10, 12) (length s')) <>) . constStream <$> kanjiB s'
-  where
-    s' :: [Char]
-    s' = toString s
+kanji s =
+  case toString s of
+    [] -> pure (constStream mempty)
+    s' -> ((encodeBits 4 0b1000 <> lengthSegment (8, 10, 12) (length s')) <>) . constStream <$> kanjiB s'
 
 kanjiB :: [Char] -> Result BSB.ByteStreamBuilder
 kanjiB s = Result $ mconcat <$> traverse (fmap (BSB.encodeBits 13 . fromIntegral) . (`M.lookup` kanjiMap)) s

@@ -16,10 +16,9 @@ import           Codec.QRCode.Data.ToInput
 -- | Generate a segment representing the specified string of decimal digits encoded in numeric mode.
 numeric :: ToNumeric a => a -> Result QRSegment
 numeric s =
-  ((encodeBits 4 0b0001 <> lengthSegment (10, 12, 14) (length s')) <>) . constStream <$> numericB s'
-  where
-    s' :: [Int]
-    s' = toNumeric s
+  case toNumeric s of
+    [] -> pure (constStream mempty)
+    s' -> ((encodeBits 4 0b0001 <> lengthSegment (10, 12, 14) (length s')) <>) . constStream <$> numericB s'
 
 numericB :: ToNumeric a => a -> Result BSB.ByteStreamBuilder
 numericB s

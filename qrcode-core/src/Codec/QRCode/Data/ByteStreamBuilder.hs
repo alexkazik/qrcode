@@ -7,6 +7,7 @@ module Codec.QRCode.Data.ByteStreamBuilder
   , encodeBits
   , toList
   , Codec.QRCode.Data.ByteStreamBuilder.length
+  , Codec.QRCode.Data.ByteStreamBuilder.null
   , fromList
   , toBitStream
   ) where
@@ -50,6 +51,10 @@ fromList = ByteStreamBuilder . DL.fromList . map ((8,) . fromIntegral)
 length :: ByteStreamBuilder -> Int
 {-# INLINEABLE length #-}
 length = sum . map fst . DL.toList . unBitStreamBuilder
+
+null :: ByteStreamBuilder -> Bool
+{-# INLINE null #-}
+null = Codec.QRCode.Base.null . DL.toList . unBitStreamBuilder
 
 -- | Convert ByteStreamBuilder to list of Word8
 toList :: ByteStreamBuilder -> [Word8]

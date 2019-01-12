@@ -46,6 +46,7 @@ calcVersionAndErrorLevel QRCodeOptions{..} input =
         versions = versionsInRangeLimitedBy vr qroMinVersion qroMaxVersion
       guard (not (null versions))
       stream <- unQRSegment input vr
+      guard (not (BSB.null stream))
       firstSuccess (checkSize stream) versions
     -- Check if the data fits into a specific `Version`.
     checkSize :: BSB.ByteStreamBuilder -> Version -> Result QRIntermediate

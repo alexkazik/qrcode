@@ -26,11 +26,10 @@ import           Codec.QRCode.Data.ToInput
 --    This can be archived by applying `Data.CaseInsensitive.mk` to the input.
 alphanumeric :: ToText a => a -> Result QRSegment
 alphanumeric s =
-  ((encodeBits 4 0b0010 <> lengthSegment (9, 11, 13) (length s')) <>) . constStream
-  <$> alphanumericB (isCI s) s'
-  where
-    s' :: [Char]
-    s' = toString s
+  case toString s of
+    [] -> pure (constStream mempty)
+    s' -> ((encodeBits 4 0b0010 <> lengthSegment (9, 11, 13) (length s')) <>) . constStream
+          <$> alphanumericB (isCI s) s'
 
 alphanumericB :: Bool -> [Char] -> Result BSB.ByteStreamBuilder
 alphanumericB ci s = go <$> traverse (Result . (`M.lookup` alphanumericMap ci)) s

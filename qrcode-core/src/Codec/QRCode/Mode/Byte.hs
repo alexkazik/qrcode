@@ -18,10 +18,10 @@ import           Codec.QRCode.Mode.ECI
 
 -- | Generate a segment representing the specified binary data in byte mode.
 binary :: ToBinary a => a -> QRSegment
-binary s = encodeBits 4 0b0100 <> lengthSegment (8, 16, 16) (length s') <> constStream (BSB.fromList s')
-  where
-    s' :: [Word8]
-    s' = toBinary s
+binary s =
+  case toBinary s of
+    [] -> constStream mempty
+    s' -> encodeBits 4 0b0100 <> lengthSegment (8, 16, 16) (length s') <> constStream (BSB.fromList s')
 
 -- | Generate a segment representing the specified text data encoded as ISO-8859-1 or UTF-8
 --   (with or without ECI) in byte mode.

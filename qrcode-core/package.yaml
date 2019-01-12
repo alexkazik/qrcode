@@ -39,6 +39,7 @@ library:
   exposed-modules:
   - Codec.QRCode
   - Codec.QRCode.Intermediate
+  - Codec.QRCode.Intermediate.Special
   - Codec.QRCode.Data.ErrorLevel
   - Codec.QRCode.Data.Mask
   - Codec.QRCode.Data.QRImage

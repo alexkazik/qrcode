@@ -31,12 +31,16 @@ import           Codec.QRCode.Mode.Numeric
 
 mixed :: ToText a => TextEncoding -> a -> Result QRSegment
 mixed te s =
-  case te of
-    Iso8859_1                 -> encIso1
-    Utf8WithoutECI            -> encUtf8
-    Utf8WithECI               -> encUtf8Eci
-    Iso8859_1OrUtf8WithoutECI -> encIso1 <|> encUtf8
-    Iso8859_1OrUtf8WithECI    -> encIso1 <|> encUtf8Eci
+  case s' of
+    [] ->
+      pure (constStream mempty)
+    _ ->
+      case te of
+        Iso8859_1                 -> encIso1
+        Utf8WithoutECI            -> encUtf8
+        Utf8WithECI               -> encUtf8Eci
+        Iso8859_1OrUtf8WithoutECI -> encIso1 <|> encUtf8
+        Iso8859_1OrUtf8WithECI    -> encIso1 <|> encUtf8Eci
   where
     encIso1 :: Result QRSegment
     encIso1 = run EncISO1 <$> toIso1 ci s'
