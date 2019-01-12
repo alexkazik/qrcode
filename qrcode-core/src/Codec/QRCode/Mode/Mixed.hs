@@ -146,7 +146,7 @@ encode te vr (ty, S i j s) =
     (TNumeric,      _) -> go 0b0001 i =<< numericB (DL.toList s)
     (TAlphanumeric, _) -> go 0b0010 i =<< alphanumericB True (DL.toList s)
     (T8Bit,   EncISO1) -> go 0b0100 j (BSB.fromList $ map (fromIntegral . ord) (DL.toList s))
-    (T8Bit,   EncUtf8) -> go 0b0100 j (BSB.fromList $ encodeUtf8 $ DL.toList s)
+    (T8Bit,   EncUtf8) -> go 0b0100 j =<< BSB.fromList <$> encodeUtf8 (DL.toList s)
     (TKanji,        _) -> go 0b1000 i =<< kanjiB (DL.toList s)
   where
     go :: Int -> Int -> BSB.ByteStreamBuilder -> Result BSB.ByteStreamBuilder
