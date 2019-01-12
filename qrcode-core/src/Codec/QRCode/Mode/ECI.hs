@@ -2,8 +2,7 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 
 module Codec.QRCode.Mode.ECI
-  ( eciEx
-  , eci
+  ( eci
   ) where
 
 import           Codec.QRCode.Base
@@ -12,16 +11,10 @@ import qualified Codec.QRCode.Data.ByteStreamBuilder  as BSB
 import           Codec.QRCode.Data.QRSegment.Internal
 import           Codec.QRCode.Data.Result
 
-eciEx :: Int -> QRSegment
-eciEx = constStream . eciExB
-
 -- | Generate a segment representing an Extended Channel Interpretation
 --   (ECI) designator with the specified assignment value.
 eci :: Int -> Result QRSegment
 eci = fmap constStream . eciB
-
-eciExB :: Int -> BSB.ByteStreamBuilder
-eciExB = fromMaybe (error "Invalid ECI Code") . getResult . eciB
 
 eciB :: Int -> Result BSB.ByteStreamBuilder
 eciB n

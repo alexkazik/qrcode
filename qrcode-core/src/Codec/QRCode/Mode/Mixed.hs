@@ -43,7 +43,7 @@ mixed te s =
     encUtf8 :: Result QRSegment
     encUtf8 = run EncUtf8 <$> toUtf8 ci s'
     encUtf8Eci :: Result QRSegment
-    encUtf8Eci = (eciEx 26 <>) <$> encUtf8
+    encUtf8Eci = (<>) <$> eci 26 <*> encUtf8
     s' :: [Char]
     s' = toString s
     ci = isCI s

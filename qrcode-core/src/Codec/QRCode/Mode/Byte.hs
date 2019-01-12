@@ -58,7 +58,7 @@ textUtf8WithoutECI :: [Char] -> Result QRSegment
 textUtf8WithoutECI s = binary <$> encodeUtf8 s
 
 textUtf8WithECI :: [Char] -> Result QRSegment
-textUtf8WithECI s = (eciEx 26 <>) <$> textUtf8WithoutECI s
+textUtf8WithECI s = (<>) <$> eci 26 <*> textUtf8WithoutECI s
 
 encodeUtf8 :: [Char] -> Result [Word8]
 encodeUtf8 = (map fromIntegral <$>) . sequence . go
