@@ -1,6 +1,6 @@
 # Changelog for qrcode-core
 
-## upcoming
+## 0.9.0 -- 2019-02-16
 
 * Changed UTF-8 encoding: encoding a code point outside the unicode range will
   now fail the encoding, previously a replacement character was inserted
