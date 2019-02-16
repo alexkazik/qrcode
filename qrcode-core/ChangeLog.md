@@ -8,6 +8,7 @@
 * Encoding empty data will result in an empty segment
 * Encoding an empty segment fails
 * Added functions to create an (non empty) segment without data
+* Remove StrictData
 
 ## 0.8.0 -- 2019-01-09
 

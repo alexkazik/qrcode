@@ -1,6 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
 {-# LANGUAGE TypeFamilies #-}
 
 module Codec.QRCode.Data.QRImage
@@ -17,10 +16,10 @@ import           Codec.QRCode.Data.ErrorLevel
 
 data QRImage
   = QRImage
-    { qrVersion    :: Int
-    , qrErrorLevel :: ErrorLevel
-    , qrImageSize  :: Int
-    , qrImageData  :: UV.Vector Bool
+    { qrVersion    :: !Int
+    , qrErrorLevel :: !ErrorLevel
+    , qrImageSize  :: !Int
+    , qrImageData  :: !(UV.Vector Bool)
     }
 
 -- | Convert the QR code image into a list-type containing all

@@ -1,5 +1,4 @@
 {-# LANGUAGE NoImplicitPrelude #-}
-{-# LANGUAGE StrictData #-}
 
 module Codec.QRCode.Data.QRIntermediate.Internal
   ( QRIntermediate(..)
@@ -14,9 +13,9 @@ import           Codec.QRCode.Data.Version
 
 data QRIntermediate
   = QRIntermediate
-    { qrIntermediateVersion_    :: Version
-    , qrIntermediateErrorLevel_ :: ErrorLevel
-    , qrIntermediateDataSize_   :: Int
-    , qrIntermediateData_       :: BSB.ByteStreamBuilder
-    , qrIntermediateMask_       :: Maybe Mask
+    { qrIntermediateVersion_    :: !Version
+    , qrIntermediateErrorLevel_ :: !ErrorLevel
+    , qrIntermediateDataSize_   :: !Int
+    , qrIntermediateData_       :: !BSB.ByteStreamBuilder
+    , qrIntermediateMask_       :: !(Maybe Mask)
     }

@@ -1,6 +1,5 @@
 {-# LANGUAGE NoImplicitPrelude #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE StrictData #-}
 
 module Codec.QRCode.Data.MQRImage
   ( MQRImage1(..)
@@ -25,29 +24,29 @@ import           Codec.QRCode.Data.Version
 
 data MQRImage1 s
   = MQRImage1
-    { mqrImage1Size       :: Int
-    , mqrImage1Data       :: MUV.MVector s Bool
-    , mqrImage1Fixed      :: MUV.MVector s Bool
-    , mqrImage1Version    :: Version
-    , mqrImage1ErrorLevel :: ErrorLevel
+    { mqrImage1Size       :: !Int
+    , mqrImage1Data       :: !(MUV.MVector s Bool)
+    , mqrImage1Fixed      :: !(MUV.MVector s Bool)
+    , mqrImage1Version    :: !Version
+    , mqrImage1ErrorLevel :: !ErrorLevel
     }
 
 data MQRImage2 s
   = MQRImage2
-    { mqrImage2Size       :: Int
-    , mqrImage2Data       :: MUV.MVector s Bool
-    , mqrImage2Fixed      :: UV.Vector Bool
-    , mqrImage2Version    :: Version
-    , mqrImage2ErrorLevel :: ErrorLevel
+    { mqrImage2Size       :: !Int
+    , mqrImage2Data       :: !(MUV.MVector s Bool)
+    , mqrImage2Fixed      :: !(UV.Vector Bool)
+    , mqrImage2Version    :: !Version
+    , mqrImage2ErrorLevel :: !ErrorLevel
     }
 
 data MQRImage3 s
   = MQRImage3
-    { mqrImage3Size       :: Int
-    , mqrImage3Data       :: MUV.MVector s Bool
-    , mqrImage3Fixed      :: UV.Vector Bool
-    , mqrImage3Version    :: Version
-    , mqrImage3ErrorLevel :: ErrorLevel
+    { mqrImage3Size       :: !Int
+    , mqrImage3Data       :: !(MUV.MVector s Bool)
+    , mqrImage3Fixed      :: !(UV.Vector Bool)
+    , mqrImage3Version    :: !Version
+    , mqrImage3ErrorLevel :: !ErrorLevel
     }
 
 new :: PrimMonad m => Version -> ErrorLevel -> m (MQRImage1 (PrimState m))
