@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.1 -- 2019-05-23
+
+* Support for primitive 0.7
+
 ## 0.9.0 -- 2019-02-16
 
 * Changed UTF-8 encoding: encoding a code point outside the unicode range will
