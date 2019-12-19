@@ -54,7 +54,7 @@ toMatrix bl wh QRImage{..} =
     qrImageSize
       (map
         go
-        [0, qrImageSize - 1]
+        [0 .. qrImageSize - 1]
       )
   where
     go ofs =
