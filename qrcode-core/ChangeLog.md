@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.3 -- 2020-04-27
+
+* Adapt to base-4.13
+
 ## 0.9.2 -- 2019-12-19
 
 * Fix `toMatrix`
