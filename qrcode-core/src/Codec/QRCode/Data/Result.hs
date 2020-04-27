@@ -25,9 +25,11 @@ import           Data.Foldable
 import           Data.Traversable
 #endif
 #if (MIN_VERSION_base(4,9,0))
-import           Control.Monad.Fail
 import           Control.Monad.Zip
 import           Data.Functor.Classes
+#endif
+#if (MIN_VERSION_base(4,9,0)) && !(MIN_VERSION_base(4,13,0))
+import           Control.Monad.Fail
 #endif
 
 -- | This Maybe wrapper treats Just as success and Nothing as failure.
