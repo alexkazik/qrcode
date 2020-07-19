@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.4 -- 2020-07-19
+
+* Support for dlist-1.0
+
 ## 0.9.3 -- 2020-04-27
 
 * Adapt to base-4.13
