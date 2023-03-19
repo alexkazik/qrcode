@@ -1,5 +1,5 @@
 name:                qrcode-juicypixels
-version:             0.8.3
+version:             0.8.4
 github:              "alexkazik/qrcode"
 license:             MIT
 author:              "ALeX Kazik"
@@ -37,4 +37,5 @@ tested-with:
   GHC == 8.0.2,
   GHC == 8.2.2,
   GHC == 8.4.3,
-  GHC == 8.10.7
+  GHC == 8.10.7,
+  GHC == 9.4.4

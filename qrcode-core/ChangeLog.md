@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.6 -- 2023-03-19
+
+* Support for text-2.0
+
 ## 0.9.5 -- 2022-03-16
 
 * Support for bytestring-0.11

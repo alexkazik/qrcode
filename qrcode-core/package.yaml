@@ -1,5 +1,5 @@
 name:                qrcode-core
-version:             0.9.5
+version:             0.9.6
 github:              "alexkazik/qrcode"
 license:             MIT
 author:              "ALeX Kazik"
@@ -62,5 +62,6 @@ tested-with:
   GHC == 8.6.5,
   GHC == 8.8.2,
   GHC == 8.8.3,
-  GHC == 8.10.1
-  GHC == 8.10.7
+  GHC == 8.10.1,
+  GHC == 8.10.7,
+  GHC == 9.4.4
