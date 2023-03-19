@@ -246,7 +246,7 @@ mergeMiddle mt te vr = go
           g12 = g1 <> g2
           g23 = g2 <> g3
           g123 = g1 <> g2 <> g3
-          Just tn = commonSuper te t1 t3
+          tn = fromMaybe (error "commonSuper failed") $ commonSuper te t1 t3
           x1 = pfxEncLen vr t1 g12 + pfxEncLen vr t3 g3
           x2 = pfxEncLen vr t1 g1 + pfxEncLen vr t2 g2 + pfxEncLen vr t3 g3
           x3 = pfxEncLen vr t1 g1 + pfxEncLen vr t3 g23
@@ -264,7 +264,7 @@ mergeMiddle mt te vr = go
       -- (Phase 2-3) left, middle and right have a common super
       | mt >= 2 && isJust (commonSuper te t2 =<< commonSuper te t1 t3) =
         let
-          Just tn = commonSuper te t2 =<< commonSuper te t1 t3
+          tn = fromMaybe (error "commonSuper failed") $ commonSuper te t2 =<< commonSuper te t1 t3
           x2 = pfxEncLen vr t1 g1 + pfxEncLen vr t2 g2 + pfxEncLen vr t3 g3
           g123 = g1 <> g2 <> g3
           xn = pfxEncLen vr tn g123
