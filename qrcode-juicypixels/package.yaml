@@ -26,7 +26,7 @@ dependencies:
 - JuicyPixels >= 3.2.6 && < 3.4
 - qrcode-core >= 0.8 && < 1
 - text >= 1.2.2.0 && < 2.1
-- vector >= 0.11.0.0 && < 0.13
+- vector >= 0.11.0.0 && < 0.14
 
 library:
   source-dirs: src
