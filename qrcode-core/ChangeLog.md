@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.8 -- 2023-04-30
+
+* Support for primitive-0.8
+
 ## 0.9.7 -- 2023-04-23
 
 * Support for vector-0.13
