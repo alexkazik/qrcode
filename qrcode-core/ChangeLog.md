@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.10 -- 2024-09-29
+
+* Support for text-2.1
+
 ## 0.9.9 -- 2023-10-10
 
 * Support for primitive-0.9
