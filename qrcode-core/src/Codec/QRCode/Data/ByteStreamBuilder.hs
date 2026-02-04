@@ -66,7 +66,7 @@ toList = go 0 0 . DL.toList . unBitStreamBuilder
         fromIntegral (b `shiftR` (n-8)) : go (n-8) b xs
     go n _ ((n', b'):xs)
       | n == 0 && n' == 8 =
-        fromIntegral b' : go 0 0 xs -- short circut if we have currently 0 bits and the next chunk contains 8 bits
+        fromIntegral b' : go 0 0 xs -- short circuit if we have currently 0 bits and the next chunk contains 8 bits
     go n b ((n', b'):xs) =
       go (n+n') ((b `shiftL` n') .|. b') xs -- maximum leftover: 7, maximum new bits: 22, result is < 30 bits (what a Int can store at least)
     go _ _ [] = []
