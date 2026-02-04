@@ -1,5 +1,9 @@
 # Changelog for qrcode-juicypixels
 
+## 0.8.7 -- 2026-02-04
+
+* Support for bytestring-0.12
+
 ## 0.8.6 -- 2024-09-29
 
 * Support for text-2.1
