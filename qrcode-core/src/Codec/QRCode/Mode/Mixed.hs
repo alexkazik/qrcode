@@ -94,7 +94,7 @@ toIso1 ci = traverse toSeg
         tyc = typeOfChar ci c
         oc = ord c
       in
-        if tyc == T8Bit && (oc < 0 || oc >= 256) -- in case of numeric, aplhanumeric or kanji it's aready proven that it's a valid char
+        if tyc == T8Bit && (oc < 0 || oc >= 256) -- in case of numeric, aplhanumeric or kanji it's already proven that it's a valid char
           then empty
           else pure (tyc, S 1 1 (DL.singleton c))
 

@@ -39,7 +39,7 @@ generateQRImage (v, e, bs, mmask) = runST $ do
   img1 <- MI.new v e
   -- draw all function modules
   drawFunctionPatterns img1
-  -- convert the image, now the information wether an module is for data or function can't be changed anymore
+  -- convert the image, now the information whether an module is for data or function can't be changed anymore
   img2 <- MI.unsafeConvert img1
   -- draw the image
   drawCodeWords img2 (BSB.toBitStream bs)
