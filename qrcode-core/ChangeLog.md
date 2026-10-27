@@ -1,5 +1,9 @@
 # Changelog for qrcode-core
 
+## 0.9.12 -- 2026-10-27
+
+* Support for containers-0.8
+
 ## 0.9.11 -- 2026-02-04
 
 * Support for bytestring-0.12
